@@ -12,6 +12,13 @@ const CourseInput = props => {
 
   const formSubmitHandler = event => {
     event.preventDefault();
+
+    if(enteredValue.trim().length===0){            //trim removes excess white space,If lenngth=0,wkt i/p is empty    
+      return;     // If we return here the line 2 lines below will not get exec. bcz func exec. stops when u return
+    }
+    props.onAddGoal(enteredValue);
+  };
+  
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
