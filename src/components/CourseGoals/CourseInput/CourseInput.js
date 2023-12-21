@@ -30,24 +30,27 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>{" "}
+      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
+        {" "}
+        {/*Setting the css class dynamically by adding the invalid class*/}
+        <label>Course Goal</label>{" "}
         {/* 3.the inline style prop wants an object as a value, So if the i/p is !isValid => if its invalid, we set it to red else black  */}
         <input
-          style={{
-            borderColor: !isValid ? "red" : "#ccc", // {/* 3.borderColor named according to js not css */}
-            background: !isValid ? "salmon" : "transparent", // {/* 3.inLine styles have the highest priority */}
-          }}
+          // style={{
+          //   borderColor: !isValid ? "red" : "#ccc", // {/* 3.borderColor named according to js not css */}
+          //   background: !isValid ? "salmon" : "transparent", // {/* 3.inLine styles have the highest priority */}
+          // }}
           type="text"
           onChange={goalInputChangeHandler}
         />
+        <br />
+        <Button
+          // style={{ backgroundColor: !isValid ? "salmon" : "#ccc" }}
+          type="submit"
+        >
+          Add Goal
+        </Button>
       </div>
-      <Button
-        style={{ backgroundColor: !isValid ? "salmon" : "#ccc" }}
-        type="submit"
-      >
-        Add Goal
-      </Button>
     </form>
   );
 };
